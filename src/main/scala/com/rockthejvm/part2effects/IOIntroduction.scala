@@ -8,9 +8,6 @@ import cats.syntax._
 
 object IOIntroduction {
 
-  /** Exercises
-    */
-
   // 1. Sequence both IOs and return the LAST one
   def sequenceTakeLast[A, B](ioa: IO[A], iob: IO[B]): IO[B] =
     ioa.flatMap(_ => iob)

@@ -20,7 +20,7 @@ object IOErrorHandling {
 
   // 2 - handleError, handleErrorWith
   def handleIOError[A](io: IO[A])(handler: Throwable => A): IO[A] = io.redeem(handler, identity)
-  def handleIOErrorWith[A](io: IO[A])(handler: Throwable  => IO[A]): IO[A] = io.redeemWith(handler, IO.pure)
-
+  def handleIOErrorWith[A](io: IO[A])(handler: Throwable => IO[A]): IO[A] =
+    io.redeemWith(handler, IO.pure)
 
 }

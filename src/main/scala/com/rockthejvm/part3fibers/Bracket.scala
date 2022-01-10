@@ -17,12 +17,10 @@ object Bracket extends IOApp.Simple {
     openFileScanner(path).bracket { scanner =>
       def readLineAndPrint(): IO[Unit] =
         if (scanner.hasNext)
-          IO(println(scanner.nextLine())) >> IO.sleep(
-            100.millis
-          ) >> readLineAndPrint()
+          IO(println(scanner.nextLine())) >> IO.sleep(100.millis) >> readLineAndPrint()
         else IO.unit
 
-    readLineAndPrint()
+      readLineAndPrint()
     }(scanner => IO(s"closing file ${path}").debug >> IO(scanner.close()))
   }
 
