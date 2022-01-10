@@ -1,0 +1,4 @@
+[debug] [cats-effect-build] Classpath dependencies List()
+[debug] [cats-effect-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'cats-effect-build' to '/Users/dmytro/Git/rockthejvm/cats-effect/project/.bloop/cats-effect-build.json'
+[success] Generated .bloop/cats-effect-build.json

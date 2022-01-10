@@ -1,0 +1,33 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/cats-effect_3-0.1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/playground[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/playground[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/playground/Playground$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/playground/Playground$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/playground/Playground.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/playground/Playground.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/playground/Playground.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/playground/Playground.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/IOIntroduction$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/IOIntroduction$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/MyIO.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/MyIO.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/MyIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/MyIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/MyIO$MyIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/MyIO$MyIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/MyIO$MyIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/MyIO$MyIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/IOIntroduction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/IOIntroduction.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/IOIntroduction.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/IOIntroduction.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/rockthejvm/part2effects/MyIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/dmytro/Git/rockthejvm/cats-effect/target/scala-3.0.0/classes/com/rockthejvm/part2effects/MyIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
