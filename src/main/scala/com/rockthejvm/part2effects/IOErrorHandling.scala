@@ -7,7 +7,7 @@ object IOErrorHandling {
 
   /** Exercises
     */
-  // 1 - construct potentially failed IOs from standart data types (Option, Try, Either)
+  // 1 - construct potentially failed IOs from standard data types (Option, Try, Either)
 
   def option2IO[A](option: Option[A])(ifEmpty: Throwable): IO[A] =
     option.fold(IO.raiseError(ifEmpty))(IO.pure)

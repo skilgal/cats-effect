@@ -3,8 +3,11 @@ import cats.effect._
 
 package object rockthejvm {
 
-  implicit class IOOps(io: IO[String]) {
-    def debug: IO[Unit] = io.map(println)
+  implicit class IOOps[A](io: IO[A]) {
+    def debug: IO[A] = io.map{a =>
+      println( s"[${Thread.currentThread.getName}] ${a}")
+      a
+    }
   }
 
 }
