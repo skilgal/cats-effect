@@ -23,8 +23,8 @@ object MyIO {
 
   def measure[A](computation: MyIO[A]): MyIO[Long] = for {
     start <- currentTime()
-    _ <- computation
-    end <- currentTime()
+    _     <- computation
+    end   <- currentTime()
   } yield (end - start)
 
   def printStrLn(message: String): MyIO[Unit] = MyIO(() => println(message))

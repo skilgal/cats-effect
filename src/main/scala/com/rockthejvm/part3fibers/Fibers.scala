@@ -19,7 +19,7 @@ object Fibers extends IOApp.Simple {
 
   def processResultsFromFiber[A](io: IO[A]): IO[A] = {
     val comp = for {
-      fib <- io.start
+      fib    <- io.start
       result <- fib.join
     } yield result
 
@@ -35,8 +35,8 @@ object Fibers extends IOApp.Simple {
     val comp = for {
       fiberA <- ioa.start
       fiberB <- iob.start
-      aRes <- fiberA.join
-      bRes <- fiberB.join
+      aRes   <- fiberA.join
+      bRes   <- fiberB.join
     } yield (aRes, bRes)
 
     comp flatMap {
@@ -53,8 +53,8 @@ object Fibers extends IOApp.Simple {
 
   def timeout[A](io: IO[A], duration: FiniteDuration): IO[A] = {
     val comp = for {
-      fib <- io.start
-      _ <- IO.sleep(duration) >> fib.cancel
+      fib    <- io.start
+      _      <- IO.sleep(duration) >> fib.cancel
       result <- fib.join
     } yield result
 

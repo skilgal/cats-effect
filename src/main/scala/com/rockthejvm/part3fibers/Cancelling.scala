@@ -69,8 +69,8 @@ object Cancelling extends IOApp.Simple {
 
     for {
       fib <- sequence.start
-      _ <- IO.sleep(1100.millis) >> IO("CANCELING").debug >> fib.cancel
-      _ <- fib.join
+      _   <- IO.sleep(1100.millis) >> IO("CANCELING").debug >> fib.cancel
+      _   <- fib.join
     } yield ()
   }
 

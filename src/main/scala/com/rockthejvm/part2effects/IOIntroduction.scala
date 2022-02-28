@@ -15,7 +15,7 @@ object IOIntroduction {
   // 2. Sequence both IOs and return the FIRST one
   def sequenceTakeFirst[A, B](ioa: IO[A], iob: IO[B]): IO[A] = for {
     result <- ioa
-    _ <- iob
+    _      <- iob
   } yield result
 
   // 3. Repeat an IO effect forever
@@ -24,7 +24,7 @@ object IOIntroduction {
   // 4. Convert an IO to a different type
   def convert[A, B](io: IO[A], value: B): IO[B] = io.map(_ => value)
 
-  def asUnit[A](io: IO[A]): IO[Unit] = io.map(_ => ())
+  def asUnit[A](io: IO[A]): IO[Unit]   = io.map(_ => ())
   def asUnitV2[A](io: IO[A]): IO[Unit] = io.void
 
   def sumIO(num: Int): IO[Int] = {
@@ -41,7 +41,7 @@ object IOIntroduction {
     else
       for {
         lastNumber <- IO.pure(num)
-        prevSum <- sumIO(num - 1)
+        prevSum    <- sumIO(num - 1)
       } yield prevSum + lastNumber
   }
 
