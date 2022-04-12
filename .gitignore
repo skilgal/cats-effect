@@ -49,7 +49,7 @@ jitwatch.out
 /target-restarr/
 
 # metals
-.metals
-.bloop
-project/**/metals.sbt
-**/target/
+.metals/
+.bloop/
+.ammonite/
+metals.sbt

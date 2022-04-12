@@ -1,10 +1,12 @@
 package com.rockthejvm.part4PolymorphicEffects
 
-import cats.effect.Deferred
 import cats.effect._
 import java.lang.Throwable
 import com.rockthejvm._
 import scala.concurrent.duration._
+import cats.effect._
+import cats.implicits._
+import cats.effect.implicits._
 
 object Defers extends IOApp.Simple {
 
@@ -40,21 +42,47 @@ object Defers extends IOApp.Simple {
     } yield ()
   }
 
-  /**   - mega hard: implement racePair with Deffered
+  /**   - mega hard: implement racePair with Deferred
     *   - use a Deferred which can hold on Either[outcome for ioa, outcome for iob]
     *   - start two fibers, one for each IO
     *   - on completion (with any status), each IO needs to complete that Deferred
     *
-    * (hint: use a finalizer from the Resources lesson) (hint2: use a guarantee call to make sure
-    * the fibers complete the Deferred)
+    * (hint: use a finalizer from the Resources lesson)
+    *
+    * (hint2: use a guarantee call to make sure the fibers complete the Deferred)
     *   - what do you do in case of cancellation (the hardest part)?
     */
 
-  def ourRacePair[A, B](ioa: IO[A], iob: IO[B]): IO[Either[
-    (Outcome[IO, Throwable, A], Fiber[IO, Throwable, B]),
-    (Fiber[IO, Throwable, A], Outcome[IO, Throwable, B])
-  ]] = ???
+  type FirstSuccess[A, B]  = (Outcome[IO, Throwable, A], Fiber[IO, Throwable, B])
+  type SecondSuccess[A, B] = (Fiber[IO, Throwable, A], Outcome[IO, Throwable, B])
 
-  override def run: IO[Unit] = alarm
+  type RaceResult[A, B]    = Either[FirstSuccess[A, B], SecondSuccess[A, B]]
+  type EitherOutcome[A, B] = Either[Outcome[IO, Throwable, A], Outcome[IO, Throwable, B]]
+
+  def ourRacePair[A, B](
+      ioa: IO[A],
+      iob: IO[B]
+  ): IO[Either[FirstSuccess[A, B], SecondSuccess[A, B]]] = IO.uncancelable { poll =>
+    for {
+      signal <- Deferred[IO, EitherOutcome[A, B]]
+
+      fiba <- ioa.guaranteeCase(outcomeA => signal.complete(Left(outcomeA)).void).start
+      fibb <- iob.guaranteeCase(outcomeB => signal.complete(Right(outcomeB)).void).start
+      result <- poll(signal.get).onCancel {
+        for {
+          cancela <- fiba.cancel.start
+          cancelb <- fibb.cancel.start
+          _       <- cancela.join
+          _       <- cancelb.join
+        } yield ()
+      }
+    } yield result match {
+      case Left(outcomeA)  => Left((outcomeA, fibb))
+      case Right(outcomeB) => Right(fiba, outcomeB)
+    }
+  }
+
+  override def run: IO[Unit] =
+    ourRacePair(IO(println("we are first")), IO.sleep(2.seconds) *> IO(println("we second"))).void
 
 }
